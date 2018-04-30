@@ -13,8 +13,7 @@ Supporting information for paper on observed larval carryover effects after pH e
 ### [data](https://github.com/RobertsLab/paper-gigas-early-gametogenic-exposure/tree/master/data)
 
 - [Water Chemistry Information](https://github.com/RobertsLab/paper-gigas-early-gametogenic-exposure/tree/master/data/Water-Chemistry-Data)
-- [Adult *C. gigas* Tissue Sampling Key](https://github.com/RobertsLab/paper-gigas-early-gametogenic-exposure/tree/master/data/2017-Adult-Gigas-Tissue-Sampling)
-- [Gonad Histology Classification](https://github.com/RobertsLab/paper-gigas-early-gametogenic-exposure/blob/master/data/2018-02-27-Gigas-Histology-Classification.csv)
+- [Adult *C. gigas* Tissue Sampling and Gonad Histology Classifications](https://github.com/RobertsLab/paper-gigas-early-gametogenic-exposure/tree/master/data/2017-Adult-Gigas-Tissue-Sampling)
 - [Pacific Oyster Larvae Data](https://github.com/RobertsLab/paper-gigas-early-gametogenic-exposure/tree/master/data/2017-07-30-Pacific-Oyster-Larvae)
 
 ### [images](https://github.com/RobertsLab/paper-gigas-early-gametogenic-exposure/tree/master/images)

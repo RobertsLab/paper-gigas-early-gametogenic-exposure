@@ -10,3 +10,5 @@ From Grace:
   - ID: oyster individual ID from [tissue sampling spreadsheet](https://github.com/RobertsLab/project-oyster-oa/blob/master/data/Manchester/2017-Adult-Gigas-Tissue-Sampling/20170408-GigasTissueSamplingInformation.xlsx)
   - Magnification: "hi" = 40x; "lo" = 4x
 - NOTE: The histology images labeled with individual tissues as “UK-##” are currently not determined which oyster individual they belong to. During the histology process, it appears that the performers of the histology slides moved the tissues into new orientation from what Yaamini’s original key denotes the individual oysters.
+
+[Retakes from 2018-03-13](https://github.com/RobertsLab/paper-gigas-early-gametogenic-exposure/tree/master/images/Gigas-gonad-histology/2017-04-08-Sampling/2018-03-13-Postexperiment-Retakes) were taken by Yaamini Venkataraman and follow the same naming convention.

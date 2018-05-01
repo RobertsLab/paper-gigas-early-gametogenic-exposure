@@ -1,0 +1,266 @@
+﻿Raw Data
+Scope 1/1, Sample 1/3 (FISHER (Ref. 25°C) | 7.00)
+Method Function,Sample (Calib) (C1)
+Creation time,4/2/2018 9:44:52 AM,
+Sample start time,4/2/2018 9:44:52 AM,
+Temperature,25.0 °C,
+Method Function,Titration stand (Titrationstand1)
+Creation time,4/2/2018 9:44:53 AM,
+Method Function,Stir (Stir1)
+Creation time,4/2/2018 9:45:02 AM,
+Method Function,Measure (normal) [1] (Measurenormal1)
+Creation time,4/2/2018 9:46:03 AM,
+T,21.5 °C,
+E,-6.7 mV,
+tMe,00:30 min,
+ESTMe,-6.7 mV,
+Scope 1/1, Sample 2/3 (FISHER (Ref. 25°C) | 4.00)
+Method Function,Sample (Calib) (C1)
+Creation time,4/2/2018 9:46:45 AM,
+Sample start time,4/2/2018 9:46:45 AM,
+Temperature,25.0 °C,
+Method Function,Titration stand (Titrationstand1)
+Creation time,4/2/2018 9:46:45 AM,
+Method Function,Stir (Stir1)
+Creation time,4/2/2018 9:46:45 AM,
+Method Function,Measure (normal) [1] (Measurenormal1)
+Creation time,4/2/2018 9:47:46 AM,
+T,21.6 °C,
+E,165.7 mV,
+tMe,00:30 min,
+ESTMe,165.7 mV,
+Scope 1/1, Sample 3/3 (FISHER (Ref. 25°C) | 10.00)
+Method Function,Sample (Calib) (C1)
+Creation time,4/2/2018 9:48:28 AM,
+Sample start time,4/2/2018 9:48:28 AM,
+Temperature,25.0 °C,
+Method Function,Titration stand (Titrationstand1)
+Creation time,4/2/2018 9:48:28 AM,
+Method Function,Stir (Stir1)
+Creation time,4/2/2018 9:48:29 AM,
+Method Function,Measure (normal) [1] (Measurenormal1)
+Creation time,4/2/2018 9:49:29 AM,
+T,21.6 °C,
+E,-183.7 mV,
+tMe,00:30 min,
+ESTMe,-183.6 mV,
+After Scope 1 / 1
+Method Function,Calibration (Calibration1)
+Creation time,4/2/2018 9:50:20 AM,
+Successful,Yes,
+Calib. temperature,21.6 °C,
+SLOPECal1,-57.19 mV/pH,
+SLOPECal2,-58.47 mV/pH,
+ZEROCal1,6.897 pH,
+ZEROCal2,6.899 pH,
+Segment limit 1, 2,7.014 pH,
+Method Function,Zero point 1 (Cal1.Z1)
+Creation time,4/2/2018 9:50:20 AM,
+Result,6.897 pH,
+Decimal places,3,
+Method Function,Slope 1 (Cal1.S1)
+Creation time,4/2/2018 9:50:20 AM,
+Result,-57.19 mV/pH,
+Decimal places,2,
+Method Function,Zero point 2 (Cal1.Z2)
+Creation time,4/2/2018 9:50:20 AM,
+Result,6.899 pH,
+Decimal places,3,
+Method Function,Slope 2 (Cal1.S2)
+Creation time,4/2/2018 9:50:20 AM,
+Result,-58.47 mV/pH,
+Decimal places,2,
+
+Resource Data
+Scope 1/1, Sample 1/3 (FISHER (Ref. 25°C) | 7.00)
+Method Function,Titration stand (Titrationstand1)
+Type,Rondolino TTL,
+Stirrer output,MB/STIRRER2,
+Connection,MB/TTL,
+Method Function,Measure (normal) [1] (Measurenormal1)
+Sensor type,pH,
+Unit,mV,
+Sensor input,AB1/Sensor1,
+Serial number,,
+Int. temp. sensor,No,
+Mon. life span,No,
+Sensor type,Temperature,
+Unit,°C,
+Sensor input,AB1/PT1000,
+Serial number,,
+Zero point,0.0 °C,
+Calibration method,External (Manual),
+Date / Time,7/15/2016 11:24:28 AM,
+Performed by,External (METTLER TOLEDO),
+Mon. usable life,No,
+Mon. life span,No,
+Scope 1/1, Sample 2/3 (FISHER (Ref. 25°C) | 4.00)
+Method Function,Titration stand (Titrationstand1)
+Type,Rondolino TTL,
+Stirrer output,MB/STIRRER2,
+Connection,MB/TTL,
+Method Function,Measure (normal) [1] (Measurenormal1)
+Sensor type,pH,
+Unit,mV,
+Sensor input,AB1/Sensor1,
+Serial number,,
+Int. temp. sensor,No,
+Mon. life span,No,
+Sensor type,Temperature,
+Unit,°C,
+Sensor input,AB1/PT1000,
+Serial number,,
+Zero point,0.0 °C,
+Calibration method,External (Manual),
+Date / Time,7/15/2016 11:24:28 AM,
+Performed by,External (METTLER TOLEDO),
+Mon. usable life,No,
+Mon. life span,No,
+Scope 1/1, Sample 3/3 (FISHER (Ref. 25°C) | 10.00)
+Method Function,Titration stand (Titrationstand1)
+Type,Rondolino TTL,
+Stirrer output,MB/STIRRER2,
+Connection,MB/TTL,
+Method Function,Measure (normal) [1] (Measurenormal1)
+Sensor type,pH,
+Unit,mV,
+Sensor input,AB1/Sensor1,
+Serial number,,
+Int. temp. sensor,No,
+Mon. life span,No,
+Sensor type,Temperature,
+Unit,°C,
+Sensor input,AB1/PT1000,
+Serial number,,
+Zero point,0.0 °C,
+Calibration method,External (Manual),
+Date / Time,7/15/2016 11:24:28 AM,
+Performed by,External (METTLER TOLEDO),
+Mon. usable life,No,
+Mon. life span,No,
+After Scope 1 / 1
+Method Function,Calibration (Calibration1)
+Sensor type,pH,
+Unit,pH,
+Sensor input,AB1/Sensor1,
+Serial number,,
+Calibration,Segmented,
+Number of segments,2,
+Zero point 1,6.869 pH,
+Slope 1 (TCalib),-57.43 mV/pH,
+Slope 1 (25.0 °C),-58.41 mV/pH,
+Slope 1,98.73 %,
+Segment limit 1, 2,7.021 pH,
+Zero point 2,6.870 pH,
+Slope 2 (TCalib),-57.70 mV/pH,
+Slope 2 (25.0 °C),-58.68 mV/pH,
+Slope 2,99.19 %,
+Int. temp. sensor,No,
+Calib. temperature,20.0 °C,
+Calibration method,pH_calibration_7_4_10,
+Date / Time,3/27/2018 12:28:27 PM,
+Performed by,SystemInternal,
+Mon. usable life,No,
+Mon. life span,No,
+
+Table of Measured Values
+Task,T344
+Scope 1/1, Sample 1/3 (FISHER (Ref. 25°C) | 7.00)
+Result,Measurenormal1
+t,E,T
+1,-6.7,21.5
+2,-6.7,21.5
+3,-6.7,21.5
+4,-6.7,21.5
+5,-6.7,21.5
+6,-6.7,21.5
+7,-6.7,21.5
+8,-6.7,21.5
+9,-6.7,21.5
+10,-6.7,21.5
+11,-6.7,21.5
+12,-6.8,21.5
+13,-6.7,21.5
+14,-6.7,21.5
+15,-6.7,21.5
+16,-6.7,21.5
+17,-6.7,21.5
+18,-6.7,21.5
+19,-6.7,21.5
+20,-6.7,21.5
+21,-6.7,21.5
+22,-6.7,21.5
+23,-6.7,21.5
+24,-6.7,21.5
+25,-6.7,21.5
+26,-6.7,21.5
+27,-6.7,21.5
+28,-6.7,21.5
+29,-6.7,21.5
+30,-6.7,21.5
+Scope 1/1, Sample 2/3 (FISHER (Ref. 25°C) | 4.00)
+Result,Measurenormal1
+t,E,T
+1,165.7,21.6
+2,165.7,21.6
+3,165.7,21.6
+4,165.7,21.6
+5,165.7,21.6
+6,165.7,21.6
+7,165.7,21.6
+8,165.7,21.6
+9,165.7,21.6
+10,165.7,21.6
+11,165.7,21.6
+12,165.7,21.6
+13,165.7,21.6
+14,165.7,21.6
+15,165.7,21.6
+16,165.8,21.6
+17,165.8,21.6
+18,165.8,21.6
+19,165.7,21.6
+20,165.8,21.6
+21,165.7,21.6
+22,165.7,21.6
+23,165.7,21.6
+24,165.7,21.6
+25,165.7,21.6
+26,165.7,21.6
+27,165.7,21.6
+28,165.7,21.6
+29,165.8,21.6
+30,165.7,21.6
+Scope 1/1, Sample 3/3 (FISHER (Ref. 25°C) | 10.00)
+Result,Measurenormal1
+t,E,T
+1,-183.6,21.6
+2,-183.7,21.6
+3,-183.7,21.6
+4,-183.7,21.6
+5,-183.7,21.6
+6,-183.7,21.6
+7,-183.7,21.6
+8,-183.7,21.6
+9,-183.7,21.6
+10,-183.7,21.6
+11,-183.7,21.6
+12,-183.7,21.6
+13,-183.7,21.6
+14,-183.7,21.6
+15,-183.7,21.6
+16,-183.7,21.6
+17,-183.7,21.6
+18,-183.7,21.6
+19,-183.7,21.6
+20,-183.7,21.6
+21,-183.7,21.6
+22,-183.7,21.6
+23,-183.7,21.6
+24,-183.7,21.6
+25,-183.7,21.6
+26,-183.7,21.6
+27,-183.7,21.6
+28,-183.8,21.6
+29,-183.7,21.6
+30,-183.7,21.6

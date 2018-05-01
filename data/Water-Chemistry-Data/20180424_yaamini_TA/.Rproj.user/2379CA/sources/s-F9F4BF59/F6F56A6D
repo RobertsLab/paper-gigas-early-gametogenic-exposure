@@ -1,0 +1,22 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1524596154284.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1991727462",
+    "id" : "F6F56A6D",
+    "lastKnownWriteTime" : 1524597815,
+    "last_content_update" : 1524597815460,
+    "path" : "~/20180424_yaamini_TA/scripts/20180403_TA_calculation.R",
+    "project_path" : "scripts/20180403_TA_calculation.R",
+    "properties" : {
+        "cursorPosition" : "195,22",
+        "scrollLine" : "188"
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

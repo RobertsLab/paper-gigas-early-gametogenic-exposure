@@ -4,8 +4,11 @@ Raw data used for [analyses](https://github.com/RobertsLab/project-oyster-oa/tre
 
 ### **[Water-Chemistry-Data](https://github.com/RobertsLab/paper-gigas-early-gametogenic-exposure/tree/master/data/Water-Chemistry-Data)**: 
 
-#### **[2018-04-26-Total-Alkalinity-per-Tank.csv](https://github.com/RobertsLab/project-oyster-oa/blob/master/data/Manchester/Water-Chemistry-Data/2018-04-26-Total-Alkalinity-per-Tank.csv)**:
+#### **[20180424_yaamini_TA](https://github.com/RobertsLab/paper-gigas-early-gametogenic-exposure/tree/master/data/Water-Chemistry-Data/20180424_yaamini_TA)**:
 
+R project used by Sam White to calculate total alkalinity for discrete water samples. Separate [readme.txt](https://github.com/RobertsLab/paper-gigas-early-gametogenic-exposure/blob/master/data/Water-Chemistry-Data/20180424_yaamini_TA/readme.txt) included.
+
+#### **[2018-04-26-Total-Alkalinity-per-Tank.csv](https://github.com/RobertsLab/project-oyster-oa/blob/master/data/Manchester/Water-Chemistry-Data/2018-04-26-Total-Alkalinity-per-Tank.csv)**:
 Information taken directly from [Sam's notebook entry](http://onsnetwork.org/kubu4/2018/04/24/total-alkalinity-calculations-yaaminis-ocean-chemistry-samples/).
 
 - Tank: Experimental tank number from Manchester set-up

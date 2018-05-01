@@ -58,7 +58,7 @@ Created using [this R script](https://github.com/RobertsLab/paper-gigas-early-ga
 ##### **[2018-04-30-pH-Discrete-Samples-by-Tank.csv](https://github.com/RobertsLab/paper-gigas-early-gametogenic-exposure/blob/master/data/Water-Chemistry-Data/2018-04-30-pH-Calculations/2018-04-30-pH-Discrete-Samples-by-Tank.csv)**:
 Created by compiling data from "Data YEAR-MONTH-DATE .csv" files.
 
-- Date: Date of data collection
+- Date: Date of sample collection
 - Day: Day of experiment
 - Tank: Experimental or header tank number designation from Manchester set-up
 - mv: mV, pH measurement
@@ -71,6 +71,39 @@ Created using [this R script](https://github.com/RobertsLab/paper-gigas-early-ga
 - Treatment: Experimental (low pH) or Control (ambient pH)
 - averagepH: pH units, averages from three replicates
 - standardError: pH units, calculated from three replicates
+
+#### **[2018-04-30-In-Situ-Variable-Calculationss](https://github.com/RobertsLab/paper-gigas-early-gametogenic-exposure/tree/master/data/Water-Chemistry-Data/2018-04-30-In-Situ-Variable-Calculations)**:
+Folder with information necessary to calculate in situ carbonate chemistry parameters.
+
+##### **[2018-04-30-Seacarb-Inputs.csv](https://github.com/RobertsLab/paper-gigas-early-gametogenic-exposure/blob/master/data/Water-Chemistry-Data/2018-04-30-In-Situ-Variable-Calculations/2018-04-30-Seacarb-Inputs.csv)**:
+Inputs for `seacarb` package in R.
+
+- Date: Date of sample collection
+- Tank: From Manchester experimental set-up
+- TotalAlkalinity: µmol/kg, calculated by Sam using T5 Excellence Titrator (Metter Toledo)
+- pH: pH units, calculated in [this script](https://github.com/RobertsLab/paper-gigas-early-gametogenic-exposure/blob/master/data/Water-Chemistry-Data/2018-04-30-pH-Calculations/2018-04-30-pH-Discrete-Samples-by-Tank.csv)
+- Salinity: PSU, from [Manchester Water Chemistry datasheet](https://github.com/RobertsLab/paper-gigas-early-gametogenic-exposure/blob/master/data/Water-Chemistry-Data/2018-04-30-pH-Calculations/2018-04-30-Manchester-Water-Chemistry-Data.xlsx)
+- Temperature: ºC, from [Manchester Water Chemistry datasheet](https://github.com/RobertsLab/paper-gigas-early-gametogenic-exposure/blob/master/data/Water-Chemistry-Data/2018-04-30-pH-Calculations/2018-04-30-Manchester-Water-Chemistry-Data.xlsx)
+
+##### **[2018-04-30-In-Situ-Carbonate-Chemistry-Parameters.csv](https://github.com/RobertsLab/paper-gigas-early-gametogenic-exposure/blob/master/data/Water-Chemistry-Data/2018-04-30-In-Situ-Variable-Calculations/2018-04-30-In-Situ-Carbonate-Chemistry-Parameters.csv)**:
+Outputs for `seacarb` package. Calculated with [this R script](https://github.com/RobertsLab/paper-gigas-early-gametogenic-exposure/blob/master/data/Water-Chemistry-Data/2018-04-30-In-Situ-Variable-Calculations/2018-04-30-In-Situ-pH-Calculations.R).
+
+- Date: Date of sample collection
+- Tank: From Manchester experimental set-up
+- TotalAlkalinity: µmol/kg, calculated by Sam using T5 Excellence Titrator (Metter Toledo)
+- pH: pH units, calculated in [this script](https://github.com/RobertsLab/paper-gigas-early-gametogenic-exposure/blob/master/data/Water-Chemistry-Data/2018-04-30-pH-Calculations/2018-04-30-pH-Discrete-Samples-by-Tank.csv)
+- Salinity: PSU, from [Manchester Water Chemistry datasheet](https://github.com/RobertsLab/paper-gigas-early-gametogenic-exposure/blob/master/data/Water-Chemistry-Data/2018-04-30-pH-Calculations/2018-04-30-Manchester-Water-Chemistry-Data.xlsx)
+- Temperature: ºC, from [Manchester Water Chemistry datasheet](https://github.com/RobertsLab/paper-gigas-early-gametogenic-exposure/blob/master/data/Water-Chemistry-Data/2018-04-30-pH-Calculations/2018-04-30-Manchester-Water-Chemistry-Data.xlsx)
+- S: PSU, from `seacarb` output
+- T: ºC, from `seacarb` output
+- pH: pH units, from `seacarb` output. Should have little to no change from input pH based on salinity
+- CO2: µmol/kg, from `seacarb` output
+- pCO2: µatm, from `seacarb` output
+- HCO3: µmol/kg, from `seacarb` output
+- CO3: µmol/kg, from `seacarb` output
+- DIC: µmol/kg, from `seacarb` output
+- ALK: µmol/kg, from `seacarb` output
+- OmegaAragonite: from `seacarb` output
 
 ### **[2017-Adult-Gigas-Tissue-Sampling](https://github.com/RobertsLab/paper-gigas-early-gametogenic-exposure/tree/master/data/2017-Adult-Gigas-Tissue-Sampling)**: 
 Tissue sampling information [before](https://github.com/RobertsLab/paper-gigas-early-gametogenic-exposure/tree/master/data/2017-Adult-Gigas-Tissue-Sampling/20170204-GigasTissueSamplingInformation.csv) and [after](https://github.com/RobertsLab/paper-gigas-early-gametogenic-exposure/tree/master/data/2017-Adult-Gigas-Tissue-Sampling/20170408-GigasTissueSamplingInformation.xlsx) exposure to differing pH conditions

@@ -20,20 +20,51 @@ Created using [this R script](https://github.com/RobertsLab/paper-gigas-early-ga
 - averageAlkalinity: µmol/kg, averages from three replicates
 - standardError: µmol/kg, calculated from three replicates
 
-#### **[2018-04-29-pH-Discrete-Samples-by-Tank.csv](https://github.com/RobertsLab/paper-gigas-early-gametogenic-exposure/blob/master/data/Water-Chemistry-Data/2018-04-29-pH-Discrete-Samples-by-Tank.csv)**:
+#### **[2018-04-30-pH-Calculations](https://github.com/RobertsLab/paper-gigas-early-gametogenic-exposure/tree/master/data/Water-Chemistry-Data/2018-04-30-pH-Calculations)**:
+Folder with information necessary to convert pH from mV to pH units, then average pH by experimental condition.
 
-- Date: Discrete sampling date
+##### **[2018-04-30-Calibration-Measurements](https://github.com/RobertsLab/paper-gigas-early-gametogenic-exposure/tree/master/data/Water-Chemistry-Data/2018-04-30-pH-Calculations/2018-04-30-Calibration-Measurements)**:
+Data from [this spreadsheet](https://github.com/RobertsLab/paper-gigas-early-gametogenic-exposure/blob/master/data/Water-Chemistry-Data/2018-04-30-pH-Calculations/2018-04-30-Manchester-Water-Chemistry-Data.xlsx) separated by date.
+
+- Date: Date of data collection
+- Measurement: Order in which measurements were taken
+- mvTris: mV reading of TRIS buffer
+- TTris: Temperature (ºC) of TRIS buffer
+
+##### **[2018-04-30-Grab-Samples](https://github.com/RobertsLab/paper-gigas-early-gametogenic-exposure/tree/master/data/Water-Chemistry-Data/2018-04-30-pH-Calculations/2018-04-30-Grab-Samples)**:
+Data from [this spreadsheet](https://github.com/RobertsLab/paper-gigas-early-gametogenic-exposure/blob/master/data/Water-Chemistry-Data/2018-04-30-pH-Calculations/2018-04-30-Manchester-Water-Chemistry-Data.xlsx) separated by date.
+
+- Date: Date of data collection
 - Day: Day of experiment
-- Tank: Experimental tank number from Manchester set-up
-- pH (mV): mV, read from Combination pH Electrode (Model 11278-220, Mettler Toledo)
+- Tank: Experimental or header tank number designation from Manchester set-up
+- mv: mV, pH measurement
+- Tin: Temperature (ºC) of water sample
 
-#### **[2018-04-29-Average-pH.csv](https://github.com/RobertsLab/paper-gigas-early-gametogenic-exposure/blob/master/data/Water-Chemistry-Data/2018-04-29-Average-pH.csv)**:
-Created using [this R script](https://github.com/RobertsLab/paper-gigas-early-gametogenic-exposure/blob/master/data/Water-Chemistry-Data/2018-04-29-pH-Average-Calculations.R).
+##### **Data YEAR-MONTH-DATE .csv**:
+Created using [this R script](https://github.com/RobertsLab/paper-gigas-early-gametogenic-exposure/blob/master/data/Water-Chemistry-Data/2018-04-30-pH-Calculations/2018-04-30-pH-Data-mV-Conversion.R).
+
+- Date: Date of data collection
+- Day: Day of experiment
+- Tank: Experimental or header tank number designation from Manchester set-up
+- mv: mV, pH measurement
+- pH: pH measurement in discrete pH units.
+
+##### **[2018-04-30-pH-Discrete-Samples-by-Tank.csv](https://github.com/RobertsLab/paper-gigas-early-gametogenic-exposure/blob/master/data/Water-Chemistry-Data/2018-04-30-pH-Calculations/2018-04-30-pH-Discrete-Samples-by-Tank.csv)**:
+Created by compiling data from "Data YEAR-MONTH-DATE .csv" files.
+
+- Date: Date of data collection
+- Day: Day of experiment
+- Tank: Experimental or header tank number designation from Manchester set-up
+- mv: mV, pH measurement
+- pH: pH measurement in discrete pH units.
+
+##### **[2018-04-30-Average-pH.csv](https://github.com/RobertsLab/paper-gigas-early-gametogenic-exposure/blob/master/data/Water-Chemistry-Data/2018-04-30-pH-Calculations/2018-04-30-Average-pH.csv)**:
+Created using [this R script](https://github.com/RobertsLab/paper-gigas-early-gametogenic-exposure/blob/master/data/Water-Chemistry-Data/2018-04-30-pH-Calculations/2018-04-30-pH-Average-Calculations.R).
 
 - Day: Day of experiment
-- Treatment: Experiment or Control
-- averagepH: mV, averages from three replicates
-- standardError: mV, calculated from three replicates
+- Treatment: Experimental (low pH) or Control (ambient pH)
+- averagepH: pH units, averages from three replicates
+- standardError: pH units, calculated from three replicates
 
 ### **[2017-Adult-Gigas-Tissue-Sampling](https://github.com/RobertsLab/paper-gigas-early-gametogenic-exposure/tree/master/data/2017-Adult-Gigas-Tissue-Sampling)**: 
 Tissue sampling information [before](https://github.com/RobertsLab/paper-gigas-early-gametogenic-exposure/tree/master/data/2017-Adult-Gigas-Tissue-Sampling/20170204-GigasTissueSamplingInformation.csv) and [after](https://github.com/RobertsLab/paper-gigas-early-gametogenic-exposure/tree/master/data/2017-Adult-Gigas-Tissue-Sampling/20170408-GigasTissueSamplingInformation.xlsx) exposure to differing pH conditions

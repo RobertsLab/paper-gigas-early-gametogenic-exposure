@@ -2,8 +2,8 @@
 
 ##### IMPORT DATA #####
 
-histologyData <- read.csv("2018-02-27-Gigas-Histology-Classification.csv") #Import histology data
-head(histologyData) #Confirm import
+histologyData <- read.csv("data/2017-Adult-Gigas-Tissue-Sampling/2018-02-27-Gigas-Histology-Classification.csv") #Import histology data
+head(histologyData)
 
 ##### MATURATION STAGE #####
 
@@ -23,28 +23,17 @@ histologyData$modifiedSex[which(histologyData$Sex == "female")] <- rep("female",
 histologyData$modifiedSex[which(histologyData$Sex == "male")] <- rep("male", length(which(histologyData$Sex == "male"))) #For anything where sex is male, replace 0 with "male"
 head(histologyData) #Confirm changes
 
-#### STEPWISE ADDITION MODEL BUILDING ####
+#### LINEAR MIXED EFFECTS MODEL ####
 
-#Find first significant variable using a binomial GLM and cannonical logit link
-mature.glm1 <- glm(Mature ~ factor(Treatment), family = binomial(link = "logit"), data = histologyData) #Ambient vs. low pH
-anova(mature.glm1)
-1-pf(3.7926/(30.024/38), 1, 38) #0.03466119 (Use Deviance/(ResDev/ResDF) to find F-value)
-mature.glm2 <- glm(Mature ~ factor(modifiedSex), family = binomial(link = "logit"), data = histologyData) #Female vs. male vs. unripe
-anova(mature.glm2)
-1-pf(13.175/(20.641/37), 2, 37) #2.456105e-07. modifiedSex is the most significant, so this is the base model
-mature.glm3 <- glm(Mature ~ Ferrous.inclusion.presence, family = binomial(link = "logit"), data = histologyData) #Ferrous inclusion vs. no ferrous inclusions
-anova(mature.glm3)
-1-pf(0.24821/(33.569/38), 1, 38) #0.5991481
-mature.glm4 <- glm(Mature ~ Pre.or.Post.OA, family = binomial(link = "logit"), data = histologyData) #Pre vs. post sampling
-anova(mature.glm4)
-1-pf(0.79731/(33.019/38), 1, 38) #0.3441647
+install.packages("lme4")
+library(lme4)
 
-#Use add1 to find next significant variable
-add1(mature.glm2, ~. + factor(Treatment) + Ferrous.inclusion.presence, test = "F", data = histologyData) #Neither variable is significant, so none will be included. modifiedSex is the only significant predictor
+#codify based on final tank before sampling. pre-treatment was common garden
 
-#See where differences are in mature.glm2
+#glmer(y~(1|Tank))
 
-summary(mature.glm2) #Males are more mature than females
+
+
 
 ##### SEX RATIO #####
 #Chi-squared test of homogeneity using only post-treatment sex classifications
@@ -69,12 +58,3 @@ c <- as.factor(sexRatioContingencyTable$column) #Recognize as factor
 ratio.glm1 <- glm(count ~ r + c, family = poisson(link = "log"), data = sexRatioContingencyTable) #Create a poisson GLM with a log link
 anova(ratio.glm1)
 1-pchisq(3.2779, 2) #0.1941838, Insignificant, so model fits. Testing interaction will leave df = 0. Sex ratios are homogenous between low and ambient pH treatments.
-
-#### LINEAR MIXED EFFECTS MODEL ####
-
-install.packages("lme4")
-library(lme4)
-
-#codify based on final tank before sampling. pre-treatment was common garden
-
-#glmer(y~(1|Tank))

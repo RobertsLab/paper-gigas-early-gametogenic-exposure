@@ -1,12 +1,8 @@
 #In this script I will analyze my gonad histology data. I will first see if treatment affected maturation state. Then, I will see if the sex ratios between treatments are homogenous.
 
-##### SET WORKING DIRECTORY #####
-
-getwd() #Working directory is set to the Gonad-Histology folder
-
 ##### IMPORT DATA #####
 
-histologyData <- read.csv("../../data/2017-Adult-Gigas-Tissue-Sampling/2018-02-27-Gigas-Histology-Classification.csv") #Import histology data
+histologyData <- read.csv("2018-02-27-Gigas-Histology-Classification.csv") #Import histology data
 head(histologyData) #Confirm import
 
 ##### MATURATION STAGE #####

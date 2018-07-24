@@ -23,25 +23,6 @@ histologyData$modifiedSex[which(histologyData$Sex == "female")] <- rep("female",
 histologyData$modifiedSex[which(histologyData$Sex == "male")] <- rep("male", length(which(histologyData$Sex == "male"))) #For anything where sex is male, replace 0 with "male"
 head(histologyData) #Confirm changes
 
-#### LINEAR MIXED EFFECTS MODEL ####
-
-install.packages("lme4") #Install package for linear mixed effects model
-library(lme4) #Load package for linear mixed effects model
-
-#I'm going to create a linear mixed effects model, with tank as a random effect. All individuals started out in a common garden in the "Pre" pre-treatment tank. Post-treatment, tanks 1-3 (A-C) represent treamtent conditions, and tanks 4-6 represent ambient conditions. Because the histology tissue was mixed up during processing, there are tissues for which I cannot assign a tank. Tank 4 (D) and tank 6 (E) are represented. All unknown tissues are labelled "F".
-
-mature.glmer1 <- glmer(Mature ~ factor(Treatment) + (1|Tank), family = binomial(link = "logit"), data = histologyData) #Ambient vs. low pH
-summary(mature.glmer1) #AIC = 35.8
-
-mature.glmer2 <- glmer(Mature ~ factor(modifiedSex) + (1|Tank), family = binomial(link = "logit"), data = histologyData) #Female vs. male vs. unripe
-summary(mature.glmer2) #AIC  = 27.2
-
-mature.glmer3 <- glmer(Mature ~ Ferrous.inclusion.presence + (1|Tank), family = binomial(link = "logit"), data = histologyData) #Ferrous inclusion vs. no ferrous inclusions
-summary(mature.glmer3) #AIC = 39.3
-
-mature.glmer4 <- glmer(Mature ~ Pre.or.Post.OA + (1|Tank), family = binomial(link = "logit"), data = histologyData) #Pre vs. post sampling
-summary(mature.glmer4) #AIC = 39.0
-
 #### BINOMIAL GLM ####
 
 #Find first significant variable using a binomial GLM and cannonical logit link

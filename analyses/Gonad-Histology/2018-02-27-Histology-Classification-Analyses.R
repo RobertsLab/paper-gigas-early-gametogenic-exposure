@@ -64,7 +64,7 @@ head(sexRatioContingencyTable) #Confirm table creation
 r <- as.factor(sexRatioContingencyTable$row) #Recognize as factor
 c <- as.factor(sexRatioContingencyTable$column) #Recognize as factor
 
-#### TEST INDEPENDENT VARIABLES ####
+#### CHI-SQUARED OF HOMOGENEITY ####
 ratio.glm1 <- glm(count ~ r + c, family = poisson(link = "log"), data = sexRatioContingencyTable) #Create a poisson GLM with a log link
 anova(ratio.glm1)
 1-pchisq(3.2779, 2) #0.1941838, Insignificant, so model fits. Testing interaction will leave df = 0. Sex ratios are homogenous between low and ambient pH treatments.

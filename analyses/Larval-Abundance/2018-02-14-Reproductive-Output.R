@@ -1,10 +1,5 @@
 #In this script, I'll identify any significant differences in D-hinge abundance 18 hpf.
 
-#### SET WORKING DIRECTORY ####
-
-getwd()
-setwd("../../") #Set working directory as repository
-
 #### IMPORT DATA ####
 
 hatchRate <- read.csv("data/2017-07-30-Pacific-Oyster-Larvae/2018-02-14-Hatch-Rate-Data.csv", header = TRUE) #Import hatch rate data
@@ -19,6 +14,7 @@ hatchRatepHOnly$Male.Treatment <- factor(hatchRatepHOnly$Male.Treatment) #Make s
 hatchRatepHOnly <- hatchRatepHOnly[-24,] #Remove outlier from Ambient-Ambient group
 tail(hatchRatepHOnly) #Confirm removal
 
+#### ONE WAY ANOVA ####
 hatchRatepHTreatmentANOVA <- aov(Average.Hatch.Rate ~ Parental.Treatment, data = hatchRatepHOnly) #One-way ANOVA by parental treatment
 summary(hatchRatepHTreatmentANOVA)[[1]][["F value"]][[1]] #F = 3.10953
 summary(hatchRatepHTreatmentANOVA)[[1]][["Pr(>F)"]][[1]] #p = 0.05082859
@@ -36,6 +32,20 @@ summary(hatchRatepHTreatmentFemaleANOVA)[[1]][["Pr(>F)"]][[1]] #p = 0.006908886
 plot(x = hatchRatepHOnly$Female.Treatment, y = hatchRatepHOnly$Average.Hatch.Rate, xlab = "Treatment", ylab = "Hatch Rate", main = "Hatch Rate by Female Treatment", cex.main = 4, cex.axis = 1, cex.lab = 1.4) #Preliminary plot
 legend("topright", bty = "n", legend = paste("t =", format(sqrt(summary(hatchRatepHTreatmentFemaleANOVA)[[1]][["F value"]][[1]]), digits = 4), "p =", format(summary(hatchRatepHTreatmentFemaleANOVA)[[1]][["Pr(>F)"]][[1]], digits = 4))) #Add t and p-value
 #dev.off()
+
+#### LINEAR MIXED EFFECT MODEL ####
+
+install.packages("car") #Install package do run ANOVA with lmer results
+library(lme4) #Load package
+library(car) #Load package for ANOVA
+
+hatchRatepHTreatment.lmer <- lmer(Average.Hatch.Rate ~ Parental.Treatment + (1 | Sire), data = hatchRatepHOnly) #Linear mixed effect model using Sire as a random effect
+summary(hatchRatepHTreatment.lmer) #Sire: Variance = 0.0002569, St. Dev = 0.01603. Variance range overlaps zero, so I can pool by male treatment
+Anova(hatchRatepHTreatment.lmer) # Pr(>Chisq) = 0.02445
+
+hatchRatepHTreatment.lmer2 <- lmer(Average.Hatch.Rate ~ Female.Treatment + (1 | Sire), data = hatchRatepHOnly) #Linear mixed effect model using Sire as a random effect
+summary(hatchRatepHTreatment.lmer2) #Sire: Variance = 8.871e-05, St. Dev = 0.009418. Variance range overlaps zero
+Anova(hatchRatepHTreatment.lmer2) # Pr(>Chisq) = 0.00271
 
 #### MANCHESTER PAPER FIGURES ####
 #jpeg(filename = "analyses/Manchester_ReproductiveOutput_20180214/2018-04-16-Manchester-Paper-Figure.jpeg", width = 1500, height = 1000)

@@ -25,15 +25,44 @@ head(histologyData) #Confirm changes
 
 #### LINEAR MIXED EFFECTS MODEL ####
 
-install.packages("lme4")
-library(lme4)
+install.packages("lme4") #Install package for linear mixed effects model
+library(lme4) #Load package for linear mixed effects model
 
-#codify based on final tank before sampling. pre-treatment was common garden
+#I'm going to create a linear mixed effects model, with tank as a random effect. All individuals started out in a common garden in the "Pre" pre-treatment tank. Post-treatment, tanks 1-3 (A-C) represent treamtent conditions, and tanks 4-6 represent ambient conditions. Because the histology tissue was mixed up during processing, there are tissues for which I cannot assign a tank. Tank 4 (D) and tank 6 (E) are represented. All unknown tissues are labelled "F".
 
-#glmer(y~(1|Tank))
+mature.glmer1 <- glmer(Mature ~ factor(Treatment) + (1|Tank), family = binomial(link = "logit"), data = histologyData) #Ambient vs. low pH
+summary(mature.glmer1) #AIC = 35.8
 
+mature.glmer2 <- glmer(Mature ~ factor(modifiedSex) + (1|Tank), family = binomial(link = "logit"), data = histologyData) #Female vs. male vs. unripe
+summary(mature.glmer2) #AIC  = 27.2
 
+mature.glmer3 <- glmer(Mature ~ Ferrous.inclusion.presence + (1|Tank), family = binomial(link = "logit"), data = histologyData) #Ferrous inclusion vs. no ferrous inclusions
+summary(mature.glmer3) #AIC = 39.3
 
+mature.glmer4 <- glmer(Mature ~ Pre.or.Post.OA + (1|Tank), family = binomial(link = "logit"), data = histologyData) #Pre vs. post sampling
+summary(mature.glmer4) #AIC = 39.0
+
+#### BINOMIAL GLM ####
+
+#Find first significant variable using a binomial GLM and cannonical logit link
+mature.glm1 <- glm(Mature ~ factor(Treatment), family = binomial(link = "logit"), data = histologyData) #Ambient vs. low pH
+anova(mature.glm1)
+1-pf(3.7926/(30.024/38), 1, 38) #0.03466119 (Use Deviance/(ResDev/ResDF) to find F-value)
+mature.glm2 <- glm(Mature ~ factor(modifiedSex), family = binomial(link = "logit"), data = histologyData) #Female vs. male vs. unripe
+anova(mature.glm2)
+1-pf(13.175/(20.641/37), 2, 37) #2.456105e-07. modifiedSex is the most significant, so this is the base model
+mature.glm3 <- glm(Mature ~ Ferrous.inclusion.presence, family = binomial(link = "logit"), data = histologyData) #Ferrous inclusion vs. no ferrous inclusions
+anova(mature.glm3)
+1-pf(0.24821/(33.569/38), 1, 38) #0.5991481
+mature.glm4 <- glm(Mature ~ Pre.or.Post.OA, family = binomial(link = "logit"), data = histologyData) #Pre vs. post sampling
+anova(mature.glm4)
+1-pf(0.79731/(33.019/38), 1, 38) #0.3441647
+
+#Use add1 to find next significant variable
+add1(mature.glm2, ~. + factor(Treatment) + Ferrous.inclusion.presence, test = "F", data = histologyData) #Neither variable is significant, so none will be included. modifiedSex is the only significant predictor
+
+#See where differences are in mature.glm2
+summary(mature.glm2) #Males are more mature than females
 
 ##### SEX RATIO #####
 #Chi-squared test of homogeneity using only post-treatment sex classifications

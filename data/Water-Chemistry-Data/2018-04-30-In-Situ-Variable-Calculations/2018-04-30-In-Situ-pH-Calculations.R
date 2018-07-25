@@ -20,4 +20,4 @@ seacarbOutput <- cbind(seacarbInputs, carb.output) #Join tables together
 head(seacarbOutput)
 
 #### EXPORT DATA ####
-write.csv(seacarbOutput, "2018-04-30-In-Situ-Carbonate-Chemistry-Parameters.csv", row.names = FALSE)
+write.csv(seacarbOutput, "data/Water-Chemistry-Data/2018-04-30-In-Situ-Variable-Calculations/2018-04-30-In-Situ-Carbonate-Chemistry-Parameters.csv", row.names = FALSE)

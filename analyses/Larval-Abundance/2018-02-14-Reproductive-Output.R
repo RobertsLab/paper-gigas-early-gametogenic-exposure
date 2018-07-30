@@ -88,10 +88,10 @@ abline(h = 0)
 #Distributed across y-axis but not x-axis. Two groups: low pH and ambient pH females. Might be okay. No homoskedasticity.
 
 #### MANCHESTER PAPER FIGURES ####
-#jpeg(filename = "analyses/Gonad-Histology/2018-04-16-Manchester-Paper-Figure.jpeg", width = 1500, height = 1000)
+#jpeg(filename = "analyses/Larval-Abundance//2018-04-16-Manchester-Paper-Figure.jpeg", width = 1500, height = 1000)
 plot(x = hatchRatepHOnly$Parental.Treatment, y = hatchRatepHOnly$Average.Hatch.Rate, cex.axis = 2, col = "light grey") #Preliminary plot. Will modify in InDesign for publication
 #dev.off()
 
-#jpeg(filename = "analyses/Gonad-Histology/2018-07-30-Manchester-Paper-Figure2.jpeg", width = 1500, height = 1000)
+#jpeg(filename = "analyses/Larval-Abundance//2018-07-30-Manchester-Paper-Figure2.jpeg", width = 1500, height = 1000)
 plot(x = hatchRatepHOnly$Female.Treatment, y = hatchRatepHOnly$Average.Hatch.Rate, cex.axis = 2, col = "light grey") #Preliminary plot. Will modify in InDesign for publication
 #dev.off()

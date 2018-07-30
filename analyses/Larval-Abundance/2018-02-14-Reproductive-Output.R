@@ -63,6 +63,13 @@ hatchRatepHTreatment.lmer2.null <- lmer(Average.Hatch.Rate ~ (1 | Sire), data = 
 hatchRatepHTreatment.lmer2.full <- lmer(Average.Hatch.Rate ~ Female.Treatment + (1 | Sire), data = hatchRatepHOnly, REML = FALSE) #Full model includes Female.Treatment
 anova(hatchRatepHTreatment.lmer2.null, hatchRatepHTreatment.lmer2.full) #Compare null and full models. Parental treatment affected D-hinge counts (Chi-squared = 8.1781, df = 1, p = 0.00424). D-hinge counts were -0.21090 ± 0.07033 lower for families with low pH females.
 
+#### CHECK MODEL ASSUMPTIONS ####
+
+#Linearity and homoskedasticity
+plot(fitted(hatchRatepHTreatment.lmer2), residuals(hatchRatepHTreatment.lmer2), xlab = "Fitted values", ylab = "Residuals")
+abline(h = 0)
+#There are strips in my residual plot, which could be due to the fact that I have categorical data. I might need to use a logistic model...
+
 #### MANCHESTER PAPER FIGURES ####
 #jpeg(filename = "analyses/Manchester_ReproductiveOutput_20180214/2018-04-16-Manchester-Paper-Figure.jpeg", width = 1500, height = 1000)
 plot(x = hatchRatepHOnly$Parental.Treatment, y = hatchRatepHOnly$Average.Hatch.Rate, cex.axis = 2) #Preliminary plot. Will modify in InDesign for publication

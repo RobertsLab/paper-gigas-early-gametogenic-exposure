@@ -61,9 +61,22 @@ percentvar.lmer2[1] #Sire accounts for 0.3116053% of variance
 #Likelihood Ratio Test for female treatments
 hatchRatepHTreatment.lmer2.null <- lmer(Average.Hatch.Rate ~ (1 | Sire), data = hatchRatepHOnly, REML = FALSE) #The null model does not include Female.Treatment
 hatchRatepHTreatment.lmer2.full <- lmer(Average.Hatch.Rate ~ Female.Treatment + (1 | Sire), data = hatchRatepHOnly, REML = FALSE) #Full model includes Female.Treatment
-anova(hatchRatepHTreatment.lmer2.null, hatchRatepHTreatment.lmer2.full) #Compare null and full models. Parental treatment affected D-hinge counts (Chi-squared = 8.1781, df = 1, p = 0.00424). D-hinge counts were -0.21090 ± 0.07033 lower for families with low pH females.
+anova(hatchRatepHTreatment.lmer2.null, hatchRatepHTreatment.lmer2.full) #Compare null and full models. Female treatment affected D-hinge counts (Chi-squared = 8.1781, df = 1, p = 0.00424). D-hinge counts were -0.21090 ± 0.07033 lower for families with low pH females.
 
 #### CHECK MODEL ASSUMPTIONS ####
+
+#Parental.treatment
+
+#Normality of residuals
+qqnorm(residuals(hatchRatepHTreatment.lmer))
+qqline(residuals(hatchRatepHTreatment.lmer)) #Data falls on a straight line, so it's similar to a normal distribution. There are no obvious violations of the normality assumption.
+
+#Linearity and homoskedasticity
+plot(fitted(hatchRatepHTreatment.lmer), residuals(hatchRatepHTreatment.lmer), xlab = "Fitted values", ylab = "Residuals")
+abline(h = 0)
+#Distributed across y-axis but not x-axis. Three groups present. Might be okay. No homoskedasticity.
+
+#Female.treatment
 
 #Normality of residuals
 qqnorm(residuals(hatchRatepHTreatment.lmer2))
@@ -75,6 +88,10 @@ abline(h = 0)
 #Distributed across y-axis but not x-axis. Two groups: low pH and ambient pH females. Might be okay. No homoskedasticity.
 
 #### MANCHESTER PAPER FIGURES ####
-#jpeg(filename = "analyses/Manchester_ReproductiveOutput_20180214/2018-04-16-Manchester-Paper-Figure.jpeg", width = 1500, height = 1000)
-plot(x = hatchRatepHOnly$Parental.Treatment, y = hatchRatepHOnly$Average.Hatch.Rate, cex.axis = 2) #Preliminary plot. Will modify in InDesign for publication
+#jpeg(filename = "analyses/Gonad-Histology/2018-04-16-Manchester-Paper-Figure.jpeg", width = 1500, height = 1000)
+plot(x = hatchRatepHOnly$Parental.Treatment, y = hatchRatepHOnly$Average.Hatch.Rate, cex.axis = 2, col = "light grey") #Preliminary plot. Will modify in InDesign for publication
+#dev.off()
+
+#jpeg(filename = "analyses/Gonad-Histology/2018-07-30-Manchester-Paper-Figure2.jpeg", width = 1500, height = 1000)
+plot(x = hatchRatepHOnly$Female.Treatment, y = hatchRatepHOnly$Average.Hatch.Rate, cex.axis = 2, col = "light grey") #Preliminary plot. Will modify in InDesign for publication
 #dev.off()

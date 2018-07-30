@@ -38,22 +38,30 @@ tail(hatchRatepHOnly) #Confirm removal
 install.packages("lme4") #Install package for linear mixed effect models
 library(lme4) #Load package
 
-install.packages("lmerTest") #Install package do run ANOVA with lmer results
-library(lmerTest) #Load package for ANOVA
-
+#First I will look at all treatments
 hatchRatepHTreatment.lmer <- lmer(Average.Hatch.Rate ~ Parental.Treatment + (1 | Sire), data = hatchRatepHOnly) #Linear mixed effect model using Sire as a random effect
-summary(hatchRatepHTreatment.lmer) #Sire: Variance = 0.0002569, St. Dev = 0.01603. Variance range overlaps zero, so pooling is justified
+summary(hatchRatepHTreatment.lmer) #Sire: Variance = 0.0002569, St. Dev = 0.01603.
 var.lmer <- c(0.0002569, 0.0298603) #Save variances of random effects as a new vector
 percentvar.lmer <- (100*var.lmer)/sum(var.lmer) #Calculate percent variances
 percentvar.lmer[1] #Sire accounts for 0.8530009% of variance
-anova(hatchRatepHTreatment.lmer) #F-value = 3.1325, Pr(>F) = 0.05415
 
+#Likelihood Ratio Test for all treatments
+hatchRatepHTreatment.lmer.null <- lmer(Average.Hatch.Rate ~ (1 | Sire), data = hatchRatepHOnly, REML = FALSE) #The null model does not include Parental.Treatment
+hatchRatepHTreatment.lmer.full <- lmer(Average.Hatch.Rate ~ Parental.Treatment + (1 | Sire), data = hatchRatepHOnly, REML = FALSE) #Full model includes Parental.Treatment
+anova(hatchRatepHTreatment.lmer.null, hatchRatepHTreatment.lmer.full) #Compare null and full models. Parental treatment affected D-hinge counts (Chi-squared = 9.1878, df = 3, p = 0.0269). D-hinge counts were -0.15795 ± 0.10468 lower for low pH female-ambient male and -0.15795 ± 0.10509 lower for low pH female-low pH male.
+
+#There seems to be some sort of maternal effect. I will investigate this further.
+ 
 hatchRatepHTreatment.lmer2 <- lmer(Average.Hatch.Rate ~ Female.Treatment + (1 | Sire), data = hatchRatepHOnly) #Linear mixed effect model using Sire as a random effect to investigate maternal effects
 summary(hatchRatepHTreatment.lmer2) #Sire: Variance = 8.871e-05, St. Dev = 0.009418. Female.TreatmentLow: t-value = -2.999, Pr(>|t|) = 0.0119
 var.lmer2 <- c(8.871e-05, 2.838e-02) #Save variances of random effects as a new vector
 percentvar.lmer2 <- (100*var.lmer2)/sum(var.lmer2) #Calculate percent variances
 percentvar.lmer2[1] #Sire accounts for 0.3116053% of variance
-anova(hatchRatepHTreatment.lmer2) #F-value = 8.9928, Pr(>F) = 0.0119
+
+#Likelihood Ratio Test for female treatments
+hatchRatepHTreatment.lmer2.null <- lmer(Average.Hatch.Rate ~ (1 | Sire), data = hatchRatepHOnly, REML = FALSE) #The null model does not include Female.Treatment
+hatchRatepHTreatment.lmer2.full <- lmer(Average.Hatch.Rate ~ Female.Treatment + (1 | Sire), data = hatchRatepHOnly, REML = FALSE) #Full model includes Female.Treatment
+anova(hatchRatepHTreatment.lmer2.null, hatchRatepHTreatment.lmer2.full) #Compare null and full models. Parental treatment affected D-hinge counts (Chi-squared = 8.1781, df = 1, p = 0.00424). D-hinge counts were -0.21090 ± 0.07033 lower for families with low pH females.
 
 #### MANCHESTER PAPER FIGURES ####
 #jpeg(filename = "analyses/Manchester_ReproductiveOutput_20180214/2018-04-16-Manchester-Paper-Figure.jpeg", width = 1500, height = 1000)

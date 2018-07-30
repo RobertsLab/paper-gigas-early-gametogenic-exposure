@@ -65,10 +65,14 @@ anova(hatchRatepHTreatment.lmer2.null, hatchRatepHTreatment.lmer2.full) #Compare
 
 #### CHECK MODEL ASSUMPTIONS ####
 
+#Normality of residuals
+qqnorm(residuals(hatchRatepHTreatment.lmer2))
+qqline(residuals(hatchRatepHTreatment.lmer2)) #Data falls on a straight line, so it's similar to a normal distribution. There are no obvious violations of the normality assumption.
+
 #Linearity and homoskedasticity
 plot(fitted(hatchRatepHTreatment.lmer2), residuals(hatchRatepHTreatment.lmer2), xlab = "Fitted values", ylab = "Residuals")
 abline(h = 0)
-#There are strips in my residual plot, which could be due to the fact that I have categorical data. I might need to use a logistic model...
+#Distributed across y-axis but not x-axis. Two groups: low pH and ambient pH females. Might be okay. No homoskedasticity.
 
 #### MANCHESTER PAPER FIGURES ####
 #jpeg(filename = "analyses/Manchester_ReproductiveOutput_20180214/2018-04-16-Manchester-Paper-Figure.jpeg", width = 1500, height = 1000)

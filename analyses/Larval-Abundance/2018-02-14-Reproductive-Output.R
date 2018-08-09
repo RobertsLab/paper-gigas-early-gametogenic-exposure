@@ -39,19 +39,18 @@ install.packages("lme4") #Install package for linear mixed effect models
 library(lme4) #Load package
 
 #First I will look at all treatments
-hatchRatepHTreatment.lmer <- lmer(Average.Hatch.Rate ~ Parental.Treatment + (1 | Sire), data = hatchRatepHOnly) #Linear mixed effect model using Sire as a random effect
-summary(hatchRatepHTreatment.lmer) #Sire: Variance = 0.0002569, St. Dev = 0.01603.
-var.lmer <- c(0.0002569, 0.0298603) #Save variances of random effects as a new vector
+hatchRatepHTreatment.lmer <- lmer(Average.Hatch.Rate ~ Parental.Treatment + (1 | Sire) + (1 | Female.Treatment), data = hatchRatepHOnly) #Linear mixed effect model using Sire and Female.Treatment (female pool) as a random effect
+summary(hatchRatepHTreatment.lmer) #Sire: Variance = 0.0002569, St. Dev = 0.01603. Female.treatment: Variance = 0.009835, St. Dev = 0.03136
+var.lmer <- c(0.0002569, 0.0009835, 0.0298603) #Save variances of random effects as a new vector
 percentvar.lmer <- (100*var.lmer)/sum(var.lmer) #Calculate percent variances
 percentvar.lmer[1] #Sire accounts for 0.8530009% of variance
+percentvar.lmer[2] #Female pool accounts for 3.162308% of variance
 
 #Likelihood Ratio Test for all treatments
-hatchRatepHTreatment.lmer.null <- lmer(Average.Hatch.Rate ~ (1 | Sire), data = hatchRatepHOnly, REML = FALSE) #The null model does not include Parental.Treatment
-hatchRatepHTreatment.lmer.full <- lmer(Average.Hatch.Rate ~ Parental.Treatment + (1 | Sire), data = hatchRatepHOnly, REML = FALSE) #Full model includes Parental.Treatment
-anova(hatchRatepHTreatment.lmer.null, hatchRatepHTreatment.lmer.full) #Compare null and full models. Parental treatment affected D-hinge counts (Chi-squared = 9.1878, df = 3, p = 0.0269). D-hinge counts were -0.15795 ± 0.10468 lower for low pH female-ambient male and -0.15795 ± 0.10509 lower for low pH female-low pH male.
+hatchRatepHTreatment.lmer.null <- lmer(Average.Hatch.Rate ~ (1 | Sire) + (1 | Female.Treatment), data = hatchRatepHOnly, REML = FALSE) #The null model does not include Parental.Treatment
+hatchRatepHTreatment.lmer.full <- lmer(Average.Hatch.Rate ~ Parental.Treatment + (1 | Sire) + (1 | Female.Treatment), data = hatchRatepHOnly, REML = FALSE) #Full model includes Parental.Treatment
+anova(hatchRatepHTreatment.lmer.null, hatchRatepHTreatment.lmer.full) #Compare null and full models. Parental treatment did not affect D-hinge counts (Chi-squared = 6.1047, df = 3, p = 0.1066). D-hinge counts were -0.15795 ± 0.10468 lower for low pH female-ambient male and -0.15795 ± 0.10509 lower for low pH female-low pH male, but 0.09705 ± 0.10509 higher for ambient pH female-low pH male. There seems to be some sort of maternal effect that I could investigate further.
 
-#There seems to be some sort of maternal effect. I will investigate this further.
- 
 hatchRatepHTreatment.lmer2 <- lmer(Average.Hatch.Rate ~ Female.Treatment + (1 | Sire), data = hatchRatepHOnly) #Linear mixed effect model using Sire as a random effect to investigate maternal effects
 summary(hatchRatepHTreatment.lmer2) #Sire: Variance = 8.871e-05, St. Dev = 0.009418. Female.TreatmentLow: t-value = -2.999, Pr(>|t|) = 0.0119
 var.lmer2 <- c(8.871e-05, 2.838e-02) #Save variances of random effects as a new vector

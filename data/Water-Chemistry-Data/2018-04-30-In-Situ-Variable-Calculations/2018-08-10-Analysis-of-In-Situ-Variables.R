@@ -41,3 +41,12 @@ summary(calciteANOVA)[[1]][["Pr(>F)"]][[1]] #p = 1.098929e-13
 aragoniteANOVA <- aov(OmegaAragonite ~ Treatment, data = inSituParameters) #One-way ANOVA by parental treatment
 summary(aragoniteANOVA)[[1]][["F value"]][[1]] #F = 526.5207
 summary(aragoniteANOVA)[[1]][["Pr(>F)"]][[1]] #p = 1.138932e-13
+
+#### CALCULATE pH AVERAGES ####
+#I need rough numbers to use in my Abstract, Introduction, and Discussion
+
+mean(inSituParameters$pH[inSituParameters$Treatment == "Low"]) #Mean = 7.305762
+sqrt(var((inSituParameters$pH[inSituParameters$Treatment == "Low"]))) #SE = 0.0178244
+
+mean(inSituParameters$pH[inSituParameters$Treatment == "Ambient"]) #Mean = 7.818657
+sqrt(var((inSituParameters$pH[inSituParameters$Treatment == "Ambient"]))) #SE = 0.009368946

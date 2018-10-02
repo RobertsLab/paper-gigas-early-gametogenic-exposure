@@ -7,5 +7,5 @@
 **[Larval Abundance](https://github.com/RobertsLab/paper-gigas-early-gametogenic-exposure/tree/master/analyses/Larval-Abundance)**:
 
 - [D-Hinge Abundance](https://github.com/RobertsLab/paper-gigas-early-gametogenic-exposure/blob/master/analyses/Larval-Abundance/2018-02-14-Larval-Abundance.R): Found significant difference in D-hinge abundance between maternal treatments. Images produced using this R script are included in this folder.
-- [Final Paper Figure](https://github.com/RobertsLab/paper-gigas-early-gametogenic-exposure/blob/master/analyses/Larval-Abundance/2018-04-16-Manchester-Paper-Figure-InDesign.jpg): Paper figure generated from R script, then modified in InDesign.
-  - [InDesign File](https://github.com/RobertsLab/paper-gigas-early-gametogenic-exposure/blob/master/analyses/Larval-Abundance/2018-04-16-Figure-Modifications.indd): Used for figure modifications above.
+- [Final Paper Figure](https://github.com/RobertsLab/paper-gigas-early-gametogenic-exposure/blob/master/analyses/Larval-Abundance/2018-07-30-Manchester-Paper-Figure2-InDesign.jpg): Paper figure generated from R script, then modified in InDesign.
+  - [InDesign File](https://github.com/RobertsLab/paper-gigas-early-gametogenic-exposure/blob/master/analyses/Larval-Abundance/2018-04-16-Figure2-Modifications.indd): Used for figure modifications above.

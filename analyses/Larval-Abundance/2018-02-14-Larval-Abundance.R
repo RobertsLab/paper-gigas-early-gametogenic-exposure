@@ -70,6 +70,16 @@ abline(h = 0)
 plot(x = hatchRatepHOnly$Parental.Treatment, y = hatchRatepHOnly$Average.Hatch.Rate, cex.axis = 2, col = "light grey") #Preliminary plot. Will modify in InDesign for publication
 #dev.off()
 
-#jpeg(filename = "analyses/Larval-Abundance/2018-07-30-Manchester-Paper-Figure2.jpeg", width = 1500, height = 1000)
-plot(x = hatchRatepHOnly$Female.Treatment, y = hatchRatepHOnly$Average.Hatch.Rate, cex.axis = 2, col = "light grey") #Preliminary plot. Will modify in InDesign for publication
+#pdf("analyses/Larval-Abundance/2018-07-30-Manchester-Paper-Figure2.pdf", width = 11, height = 8.5)
+plot(x = hatchRatepHOnly$Female.Treatment, y = hatchRatepHOnly$Average.Hatch.Rate, col = "grey80", xaxt = "n", yaxt = "n", axes = FALSE) #Base plot
+box(col = "white") #Add a white
+axis(side = 1, labels = c("Ambient pH", "Low pH"), at = c(1, 2), col = "grey80") #Add x-axis
+mtext(text = "Female treatment", side = 1, line = 3, cex = 2) #Add x-axis labels
+axis(side = 2, las = 2, col = "grey80") #Add y-axis
+mtext(text = "Proportion live larvae", side = 2, line = 3.5, cex = 2) #Add y-axis label
+text(x = c(1, 2), y = c(0.77, 0.69), labels = c("A", "B")) #Add significance information
 #dev.off()
+
+
+#CHANGE PAR
+#MAKE AXIS LABELS BIGGER
